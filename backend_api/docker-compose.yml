@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  project1_backend_api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: project1_django
+    container_name: project1_django
+    volumes:
+      - ./pyDjango/:/home/pyDjango/
+    ports:
+      - 5000:5000
+    networks:
+      project1_network:
+        ipv4_address: 172.1.0.8
+    # links:
+    #   - mysql:mysql
+    working_dir: /home/pyDjango/
+    # 等待 3306 port 後執行一連串的Django程式 (migrate,runserver)
+    # command: ./wait-for-it.sh mysql:3306 --timeout=30 --strict -- ./docker-entrypoint.sh
+    stdin_open: true
+    tty: true
+networks:
+  project1_network:
+    ipam:
+      config:
+        - subnet : 172.1.0.0/16
