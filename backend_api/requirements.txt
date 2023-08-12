@@ -3,3 +3,5 @@ djangorestframework
 pymysql
 mysqlclient
 requests
+django-cors-headers
+pandas

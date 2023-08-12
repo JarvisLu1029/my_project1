@@ -24,6 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('data/' , deal_info.get_deal_info),
     path('data2/', deal_info.get_deal_info2),
-    path('highest_price/', deal_info.get_highest_price),
-    path('trading_vol', deal_info.get_trading_vol)
+    path('trading_vol', deal_info.get_trading_vol),
+    path('upload_excel', deal_info.get_upload_excel)
 ]
